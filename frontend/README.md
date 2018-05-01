@@ -9,7 +9,7 @@ Go to src/cljs/rooms/ui and rename config_init.cljs.template to config_init.cljs
 Configure the following things:
 - :locations, contains a list of the possible office locations and their matching filter names
 - :fetching, base-url contains the Rooms backend API url, which is used to fetch the rooms and their bookings per day.
-
+- :use-licensed-assets?, if true, the application will use licensed asset files (make sure you have obtained a license to use them!), By default, this is false, and the app will use free alternative fonts and icons.
 Now you are ready to compile the application and deploy it.
 
 # Compile production
