@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=301879
+  -->
+<configuration>
+    <appSettings>
+        <!-- Rules for parsing the room displayName value -->
+        <add key="DisplayNameClientWord" value="Client" /> <!-- If this word is found, it means that the room is suitable for client meetings -->
+        <add key="DisplayNameInternalWord" value="Internal" />  <!-- If this word is found, the room is suitable for internal meetings -->
+        <add key="DisplayNameVideoWord" value="Video" /> <!-- If this word is found, the room contains a video conference system -->
+        <add key="DisplayNameLocationRegex" value="^([\w\-]+)" /> <!-- Office location regex pattern -->
+        <add key="DisplayNameCapacityRegex" value="\(.*\d+.*\)" />  <!-- Room capacity (in  persons) regex pattern -->
+        <add key="FilterLocations" value="" /> <!-- Filter locations by name, separated by ; -->
+        <add key="LocationAbbreviations" value=""/> <!-- Aliases for office locations, for example: Tre=Tampere;Hki=Helsinki -->
+        <!-- AD connection parameters -->
+        <add key="AutoDiscoverAD" value="false" /> <!-- If true, the backend tries to resolve AD domain automatically -->
+        <add key="ADEntry" value="LDAP://example.com" /> <!-- If AutoDiscoverAD is false, use this AD directory entry -->
+        <add key="ADUsername" value="" /> <!-- If AutoDiscoverAD is false, use this AD username -->
+        <add key="ADPassword" value="" /> <!-- If AutoDiscoverAD is false, use this AD password -->
+        <!-- Exchange connection parameters -->
+        <add key="AutoDiscoverExchangeUrl" value="false" /> <!-- If true, the backend tries to discover the Exchange server url automatically -->
+        <add key="ExchangeConnectorEmail" value="user@example.com" /> <!-- If AutoDiscoverExchangeUrl is true, uses this email address to discover it -->
+        <add key="ExchangeUrl" value="https://sm.example.com/EWS/Exchange.asmx" /> <!-- If AutoDiscoverExchangeUrl is false, uses this Exchange URL -->
+        <add key="UseDefaultCredentials" value="false" /> <!-- If true, the backend tries to use the default login credentials when connecting to the Exchange server -->
+        <add key="WebCredentialsName" value="user@example.com" /> <!-- If  UseDefaultCredentials is false, use this name -->
+        <add key="WebCredentialsPassword" value="password" /> <!-- If UseDefaultCredentials is false, use this password -->
+        <add key="UseRoomCaching" value="true" /> <!-- If true, the Exchange response is cached for a short period of time -->
+       <!-- Other settings-->
+        <add key="IsLoggingEnabled" value="false"/>
+    </appSettings>
+    <system.web>
+        <compilation debug="true" targetFramework="4.5" />
+    </system.web>
+    <system.webServer>
+        <handlers>
+            <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+            <remove name="OPTIONSVerbHandler" />
+            <remove name="TRACEVerbHandler" />
+            <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+        </handlers>
+    </system.webServer>
+    <runtime>
+        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+            <dependentAssembly>
+                <assemblyIdentity name="Microsoft.Owin" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="Microsoft.Owin.Security.OAuth" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="Microsoft.Owin.Security.Cookies" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="Microsoft.Owin.Security" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="Newtonsoft.Json" culture="neutral" publicKeyToken="30ad4fe6b2a6aeed" />
+                <bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="System.Web.Helpers" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-5.2.2.0" newVersion="5.2.2.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="System.Web.Optimization" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-1.1.0.0" newVersion="1.1.0.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="System.Web.WebPages" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-3.0.0.0" newVersion="3.0.0.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="WebGrease" publicKeyToken="31bf3856ad364e35" />
+                <bindingRedirect oldVersion="1.0.0.0-1.5.2.14234" newVersion="1.5.2.14234" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="System.Net.Http.Formatting" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+                <bindingRedirect oldVersion="0.0.0.0-5.2.2.0" newVersion="5.2.2.0" />
+            </dependentAssembly>
+            <dependentAssembly>
+                <assemblyIdentity name="System.Web.Http" publicKeyToken="31bf3856ad364e35" culture="neutral" />
+                <bindingRedirect oldVersion="0.0.0.0-5.2.2.0" newVersion="5.2.2.0" />
+            </dependentAssembly>
+        </assemblyBinding>
+    </runtime>
+</configuration>

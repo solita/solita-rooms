@@ -1,0 +1,12 @@
+// Compiled by ClojureScript 1.9.946 {:static-fns true, :optimize-constants true}
+goog.provide('rooms.ui.footer');
+goog.require('cljs.core');
+goog.require('cljs.core.constants');
+goog.require('rooms.config');
+goog.require('rooms.ui.colors');
+goog.require('rooms.styles.footer');
+goog.require('rooms.styles.utils');
+goog.require('stylefy.core');
+rooms.ui.footer.footer = (function rooms$ui$footer$footer(){
+return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$footer,stylefy.core.use_style.cljs$core$IFn$_invoke$arity$1(rooms.styles.footer.footer_style),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$img,stylefy.core.use_style.cljs$core$IFn$_invoke$arity$2(rooms.styles.footer.footer_logo,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$src,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(rooms.config.url_images),"solita-footer-logo-white.svg"].join('')], null))], null),new cljs.core.PersistentVector(null, 5, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$ul,stylefy.core.use_style.cljs$core$IFn$_invoke$arity$1(rooms.styles.footer.link_list),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$li,stylefy.core.use_style.cljs$core$IFn$_invoke$arity$1(rooms.styles.footer.link_list_item),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$a,stylefy.core.use_style.cljs$core$IFn$_invoke$arity$2(rooms.styles.footer.link_list_a,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$href,"https://www.solita.fi"], null)),"Solita.fi"], null)], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$span,stylefy.core.use_style.cljs$core$IFn$_invoke$arity$1(rooms.styles.utils.text_separator),"|"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$li,stylefy.core.use_style.cljs$core$IFn$_invoke$arity$1(rooms.styles.footer.link_list_item),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.cst$kw$a,stylefy.core.use_style.cljs$core$IFn$_invoke$arity$2(rooms.styles.footer.link_list_a,new cljs.core.PersistentArrayMap(null, 1, [cljs.core.cst$kw$href,"https://intra.solita.fi"], null)),"Solita intra"], null)], null)], null)], null);
+});

@@ -1,0 +1,15 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+
+.idea/
+
+/frontend/dist/**
+/frontend/node_modules/**
+
+/frontend 2.0/resources/public/js/compiled/**
+/frontend 2.0/target/**
+/frontend 2.0/rooms.iml
+/frontend 2.0/figwheel_server.log
+
+/backend/Neukkariprojekti3/bin/**
+/backend/Neukkariprojekti3/obj/**
