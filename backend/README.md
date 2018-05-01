@@ -6,7 +6,7 @@ The backend is a C# application which acts between the frontend and Microsoft Ex
 
 Install Microsoft Exchange Web Services Managed API: http://www.microsoft.com/en-us/download/details.aspx?id=42022
 
-Open the Visual Studio solution and run it.
+Open the Visual Studio solution and run it. When you do, a web browser window is opened automatically. Add the following path to the end of the current address to test the API: /api/rooms/
 
 # Compile production
 
