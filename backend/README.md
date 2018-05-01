@@ -20,6 +20,7 @@ First, rename Web.config.template to Web.config.
 Before using this application, the rooms in AD will need to have explicitly defined displayName value. The information about each room is parsed by using the displayName property using well defined Regex patterns. By default, the room displayName needs to satisfy the following pattern:
 
 Location - RoomName (NumberOfPersons p) Video Client
+
 Real world example: Oulu - Toripolliisi (8p) Video Client
 
 You can also use different pattern by modifying the used regex values defined in Web.config. The meaning of individual values in displayName are also documented there.
