@@ -7,6 +7,7 @@
 /frontend/node_modules/**
 
 /frontend/resources/public/js/compiled/**
+/frontend/src/cljs/rooms/config_init.cljs
 /frontend/target/**
 /frontend/rooms.iml
 /frontend/figwheel_server.log
