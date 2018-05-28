@@ -48,4 +48,6 @@
   :source-paths ["src/clj" "src/cljc"]
   :test-paths ["test/clj"]
 
-  :jvm-opts ^:replace ["-Xmx1g" "-server"]) ; To prevent out of memory errors
+  :jvm-opts ^:replace ["-Xmx1g" "-server"
+                       ;; For Java 9 & 10:
+                       "--add-modules" "java.xml.bind"])
