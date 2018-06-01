@@ -2,7 +2,7 @@
 
 This application can be used to view Microsoft Exchange room bookings in a simple web interface.
 
-![Screenshot of Solita Rooms](rooms.png "Solita Rooms")
+![Screenshot of Solita Rooms](rooms2.png "Solita Rooms")
 
 
 More information and configuration help available here:
