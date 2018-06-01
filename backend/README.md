@@ -41,7 +41,7 @@ If the deployed application does not find the Web Services API, copy its DLL and
 
 # Tests
 
-Look for files ending Test.cs and run the in Visual Studio.
+Look for files ending Test.cs and run them in Visual Studio.
 
 # FAQ
 

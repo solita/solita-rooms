@@ -13,7 +13,7 @@ More information and configuration help available here:
 
 Created by: Solita Oy
 
-* Written by: Jari Hanhela
+* Written by: Jari "Jarzka" Hanhela
 * Current visual design by: Tero "Mappe" Malinen
 * Previous visual design by: Heikki Niemi
 
