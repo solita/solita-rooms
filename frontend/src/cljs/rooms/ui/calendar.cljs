@@ -106,7 +106,7 @@
                                                         (dec (t/year month))
                                                         (t/year month))
                                                       (date/previous-month (t/month month))
-                                                      (t/day month)))})
+                                                      1))})
     [:img (use-sub-style calendar-style/calendar-header :triangle
                          {:src (str (config/url-images) "triangle-left-red.svg")})]]
    [:div (use-sub-style calendar-style/calendar-header :heading)
@@ -117,7 +117,7 @@
                                                         (inc (t/year month))
                                                         (t/year month))
                                                       (date/next-month (t/month month))
-                                                      (t/day month)))})
+                                                      1))})
     [:img (use-sub-style calendar-style/calendar-header :triangle
                          {:src (str (config/url-images) "triangle-right-red.svg")})]]])
 
