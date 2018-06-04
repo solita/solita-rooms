@@ -6,6 +6,8 @@
 /frontend/dist/**
 /frontend/node_modules/**
 
+/frontend/frontend.iml
+/frontend/lib/**
 /frontend/resources/public/js/compiled/**
 /frontend/src/cljs/rooms/config_init.cljs
 /frontend/target/**
