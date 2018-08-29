@@ -53,6 +53,6 @@ It's because your current device is not connected to the organisation domain and
 
 Try to reboot your device.
 
-**I want to debug the application on production!**
+**I want to debug the application in production!**
 
 If you want to debug the application while it's running, you can enable logging on-the-fly using the Web.config file. By default, the logs are stored in: C:/temp/rooms_logs.txt
