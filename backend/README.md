@@ -45,7 +45,7 @@ Look for files ending Test.cs and run them in Visual Studio.
 
 # FAQ
 
-**I getCOMException (unable to contact domain) when trying to fetch rooms from the Rooms API**
+**I get getCOMException (unable to contact domain) when trying to fetch rooms from the Rooms API**
 
 It's because your current device is not connected to the organisation domain and thus the application is unable to retrieve rooms from Active Directory. Check your Active Directory settings in Web.config.
 
