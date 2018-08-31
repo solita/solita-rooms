@@ -12,7 +12,7 @@
                  [org.clojure/core.async "0.4.474"]
                  [stylefy "1.7.0"]
                  [garden "1.3.4"]
-                 [webjure/tuck "0.4.3"]
+                 [webjure/tuck "20180722"]
                  [alandipert/storage-atom "1.2.4"]
                  [com.taoensso/timbre "4.10.0"]
                  [cljs-ajax "0.7.3"]]

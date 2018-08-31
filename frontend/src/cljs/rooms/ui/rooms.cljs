@@ -421,42 +421,44 @@
            [time-shifting {:width width}]
            [opened-room-info @opened-timebar row-height]]]))}))
 
-(defn- first-fetch-by-date [app]
-  (when (empty? (:rooms app))
+(defn- first-fetch-by-date-status [app]
+  (let [showing-bookings (get-in app [:filters :date])
+        rooms (when showing-bookings
+                (get-in app [:rooms (fmt/date->iso-8601 showing-bookings)]))]
     (cond
-      (:fetching-rooms? app)
-      [:img (use-style rooms/spinner-big
-                       {:src (str (config/url-images) "spinner.gif")})]
-
-      (not (:server-connection? app))
+      (and (empty? rooms) (not (:server-connection? app)))
       [:div (use-style rooms/connection-error)
        (language/text :rooms-fetch-failed)]
 
+      (empty? rooms)
+      [:img (use-style rooms/spinner-big
+                       {:src (str (config/url-images) "spinner.gif")})]
       :default nil)))
 
 (defn rooms-header [app]
-  (let [showing-bookings-date (get-in app [:filters :date])]
+  (let [showing-bookings-date (get-in app [:filters :date])
+        rooms (when showing-bookings-date
+                (get-in app [:rooms (fmt/date->iso-8601 showing-bookings-date)]))]
     [:div (use-style {:height "60px"})
-     (when-not (empty? (:rooms app))
-       [:div (use-style rooms/rooms-header)
-        [:h3 (when showing-bookings-date
-               (str (language/text :showing-bookings)
-                    " "
-                    (fmt/fmt-weekday-name showing-bookings-date (:id @state/current-language))
-                    " "
-                    (fmt/date->fi-date showing-bookings-date)))]
-        (cond
-          (:fetching-rooms? app)
-          [:div
-           [:img (use-style rooms/spinner-inline
-                            {:src (str (config/url-images) "spinner.gif")})]
-           (language/text :fetching-rooms)]
+     [:div (use-style rooms/rooms-header)
+      [:h3 (when showing-bookings-date
+             (str (language/text :showing-bookings)
+                  " "
+                  (fmt/fmt-weekday-name showing-bookings-date (:id @state/current-language))
+                  " "
+                  (fmt/date->fi-date showing-bookings-date)))]
+      ;; Fetching background information
+      (cond
+        (and (not (empty? rooms)) (:fetching-rooms? app))
+        [:div
+         [:img (use-style rooms/spinner-inline
+                          {:src (str (config/url-images) "spinner.gif")})]
+         (language/text :fetching-rooms)]
 
-          (not (:server-connection? app))
-          [:div (use-style {:color colors/error})
-           (language/text :rooms-fetch-failed)]
-
-          :default nil)])]))
+        (and (not (empty? rooms)) (not (:server-connection? app)))
+        [:div (use-style {:color colors/error})
+         (language/text :rooms-fetch-failed)]
+        :default nil)]]))
 
 (defn rooms* [e! app]
   (let [rendered-width (r/atom nil)
@@ -493,7 +495,7 @@
                                  :locations-config (config/locations)})]
            [:div
             [rooms-header app]
-            [first-fetch-by-date app]
+            [first-fetch-by-date-status app]
             (when render-timetable?
               [rooms-timetable filtered-rooms {:width @rendered-width}])]))})))
 
