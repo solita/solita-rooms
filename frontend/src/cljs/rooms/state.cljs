@@ -77,7 +77,7 @@
           rooms-not-fetched (tuck/send-async! ->RoomsNotFetched)]
       (go
         (communication/fetch-rooms
-          (fmt/date->iso-8601 (get-in app [:filters :date]))
+          (fmt/date->iso-8601 date)
           {:success (fn [response]
                       (rooms-fetched date response))
            :error (fn [response]
