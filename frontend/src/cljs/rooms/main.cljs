@@ -25,6 +25,7 @@
   (e! (state/->FetchRooms (t/plus (get-in @state/state [:filters :date]) (t/days 1))))
   (e! (state/->FetchRooms (t/plus (get-in @state/state [:filters :date]) (t/days 2))))
 
+  ;; Auto-update current view
   (go-loop
     []
     (<! (timeout (config/fetch-defay)))
