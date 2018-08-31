@@ -104,7 +104,7 @@
                 :en "Friday"}
    :day-saturday {:fi "lauantai"
                   :en "Saturday"}
-   :day-sunday {:fi "su"
+   :day-sunday {:fi "sunnuntai"
                 :en "Sunday"}
 
    :day-monday-short {:fi "ma"
