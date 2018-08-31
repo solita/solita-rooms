@@ -21,7 +21,6 @@
                             :client? false
                             :capacity 0}
                   :calendar-month (t/time-now) ; Selected calendar month
-                  :showing-bookings nil ; Date for which the bookings are shown
                   :rooms {} ; ISO-8601 string -> rooms & bookings payload from the server
                   :server-connection? true
                   :fetching-rooms? false}))
@@ -33,7 +32,6 @@
 (defrecord CheckFilterBoolean [name value])
 (defrecord CheckFilterCapacity [value])
 (defrecord SelectCalendarMonth [date])
-(defrecord ShowBookings [date])
 (defrecord RoomsFetched [date rooms])
 (defrecord RoomsNotFetched [])
 
@@ -117,32 +115,14 @@
   (process-event [{date :date} app]
     (assoc app :calendar-month date))
 
-  ShowBookings
-  ;; Shows bookings for the selected date, if the result is available on the app state
-  ;; and it's not too old
-  (process-event [{date :date} app]
-    (if-let [rooms (get-in app [:rooms (fmt/date->iso-8601 date)])]
-      (let [saved-timestamp (:saved (meta rooms))
-            max-age-in-seconds 30
-            result-too-old? (> (t/in-seconds (t/interval saved-timestamp (t/time-now)))
-                               max-age-in-seconds)]
-        (if result-too-old?
-          app
-          (assoc app :showing-bookings date)))
-      app))
-
   RoomsFetched
   (process-event [{rooms :rooms date :date} app]
     (merge app
            {:rooms (merge (:rooms app)
                           {(fmt/date->iso-8601 date) (with-meta rooms
                                                                 {:saved (t/time-now)})})
-            :server-connection? true}
-           ;; If the selected date is still the same, show bookings to the user.
-           (let [current-date (get-in @state [:filters :date])]
-             (when (date/same-date? date current-date)
-               {:showing-bookings current-date
-                :fetching-rooms? false}))))
+            :server-connection? true
+            :fetching-rooms? false}))
 
   RoomsNotFetched
   (process-event [_ app]

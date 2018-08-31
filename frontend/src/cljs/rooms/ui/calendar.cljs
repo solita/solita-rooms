@@ -141,12 +141,4 @@
        :selected-month (:calendar-month app)
        :date-selected (fn [selected-date]
                         (e! (state/->SelectDate selected-date))
-                        ;; Show bookigns for the selected date, if available on the app state.
-                        ;; Fetch update from the server in any case.
-
-                        ;; If bookings are not available on the app state, the user will see
-                        ;; the current bookings in the view.
-                        ;; Fetch completion will show the fetched bookings to the user
-                        ;; if the selected date is still the same.
-                        (e! (state/->ShowBookings selected-date))
                         (e! (state/->FetchRooms selected-date)))}]]]])

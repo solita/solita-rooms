@@ -10,7 +10,7 @@
                  [clj-time "0.14.3"]
                  [com.cognitect/transit-cljs "0.8.243"]
                  [org.clojure/core.async "0.4.474"]
-                 [stylefy "1.5.1"]
+                 [stylefy "1.7.0"]
                  [garden "1.3.4"]
                  [webjure/tuck "0.4.3"]
                  [alandipert/storage-atom "1.2.4"]

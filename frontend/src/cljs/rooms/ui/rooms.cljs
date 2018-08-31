@@ -421,7 +421,7 @@
            [time-shifting {:width width}]
            [opened-room-info @opened-timebar row-height]]]))}))
 
-(defn- first-fetch-status [app]
+(defn- first-fetch-by-date [app]
   (when (empty? (:rooms app))
     (cond
       (:fetching-rooms? app)
@@ -435,7 +435,7 @@
       :default nil)))
 
 (defn rooms-header [app]
-  (let [showing-bookings-date (:showing-bookings app)]
+  (let [showing-bookings-date (get-in app [:filters :date])]
     [:div (use-style {:height "60px"})
      (when-not (empty? (:rooms app))
        [:div (use-style rooms/rooms-header)
@@ -481,7 +481,7 @@
        :reagent-render
        (fn [e! app]
          @dom/window-width ; Render the SVG again if the width of the window is changed
-         (let [showing-bookings (:showing-bookings app)
+         (let [showing-bookings (get-in app [:filters :date])
                filters (:filters app)
                rooms (when showing-bookings
                        (get-in app [:rooms (fmt/date->iso-8601 showing-bookings)]))
@@ -493,7 +493,7 @@
                                  :locations-config (config/locations)})]
            [:div
             [rooms-header app]
-            [first-fetch-status app]
+            [first-fetch-by-date app]
             (when render-timetable?
               [rooms-timetable filtered-rooms {:width @rendered-width}])]))})))
 
