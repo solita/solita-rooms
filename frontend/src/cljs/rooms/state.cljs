@@ -64,6 +64,28 @@
 (defn switch-language [new-language]
   (reset! current-language new-language))
 
+(defn- check-bookings
+  "Checks that every booking start time is before end time. If not, fixes them.
+   This is done because it is possible, although rare, that the response might contain bad start and end times."
+  [rooms]
+  (mapv (fn [room]
+          (let [bookings (:bookedTimes room)
+                checked-bookings
+                (map (fn [booking]
+                       (let [start-time (:startTime booking)
+                             end-time (:endTime booking)
+                             start-time-parsed (fmt/hhmm->date start-time)
+                             end-time-parsed (fmt/hhmm->date end-time)
+                             bad-start-and-end-time? (t/after? start-time-parsed end-time-parsed)
+                             checked-start-time (if bad-start-and-end-time? end-time start-time)
+                             checked-end-time (if bad-start-and-end-time? start-time end-time)]
+                         (assoc booking
+                           :startTime checked-start-time
+                           :endTime checked-end-time)))
+                     bookings)]
+            (assoc room :bookedTimes checked-bookings)))
+        rooms))
+
 ;; Storage manipulation
 
 (extend-protocol tuck/Event
@@ -117,12 +139,14 @@
 
   RoomsFetched
   (process-event [{rooms :rooms date :date} app]
-    (merge app
-           {:rooms (merge (:rooms app)
-                          {(fmt/date->iso-8601 date) (with-meta rooms
-                                                                {:saved (t/time-now)})})
-            :server-connection? true
-            :fetching-rooms? false}))
+    (let [checked-response (check-bookings rooms)]
+      (merge app
+             {:rooms (merge (:rooms app)
+                            {(fmt/date->iso-8601 date) (with-meta
+                                                         checked-response
+                                                         {:saved (t/time-now)})})
+              :server-connection? true
+              :fetching-rooms? false})))
 
   RoomsNotFetched
   (process-event [_ app]
