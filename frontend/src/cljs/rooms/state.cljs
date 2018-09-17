@@ -65,24 +65,26 @@
   (reset! current-language new-language))
 
 (defn- check-bookings
-  "Checks that every booking start time is before end time. If not, fixes them.
-   This is done because it is possible, although rare, that the response might contain bad start and end times."
+  "Checks that every booking start time is before end time. If not, logs a warning and filters the booking out.
+
+   It is possible, although very rare, that the end time is before start time.
+   This can happen if the booking is multi-day booking. Overwhelming majority of the bookings
+   are single day bookings, and since the API returns bookings by single date, multi-day bookings
+   are currently not supported."
   [rooms]
   (mapv (fn [room]
           (let [bookings (:bookedTimes room)
                 checked-bookings
-                (map (fn [booking]
-                       (let [start-time (:startTime booking)
-                             end-time (:endTime booking)
-                             start-time-parsed (fmt/hhmm->date start-time)
-                             end-time-parsed (fmt/hhmm->date end-time)
-                             bad-start-and-end-time? (t/after? start-time-parsed end-time-parsed)
-                             checked-start-time (if bad-start-and-end-time? end-time start-time)
-                             checked-end-time (if bad-start-and-end-time? start-time end-time)]
-                         (assoc booking
-                           :startTime checked-start-time
-                           :endTime checked-end-time)))
-                     bookings)]
+                (vec (keep (fn [booking]
+                             (let [start-time (:startTime booking)
+                                   end-time (:endTime booking)
+                                   start-time-parsed (fmt/hhmm->date start-time)
+                                   end-time-parsed (fmt/hhmm->date end-time)
+                                   bad-start-and-end-time? (t/after? start-time-parsed end-time-parsed)]
+                               (if bad-start-and-end-time?
+                                 (.warn js/console "Bad start / end time detected: " start-time " - " end-time)
+                                 booking)))
+                           bookings))]
             (assoc room :bookedTimes checked-bookings)))
         rooms))
 
@@ -139,11 +141,11 @@
 
   RoomsFetched
   (process-event [{rooms :rooms date :date} app]
-    (let [checked-response (check-bookings rooms)]
+    (let [checked-bookings (check-bookings rooms)]
       (merge app
              {:rooms (merge (:rooms app)
                             {(fmt/date->iso-8601 date) (with-meta
-                                                         checked-response
+                                                         checked-bookings
                                                          {:saved (t/time-now)})})
               :server-connection? true
               :fetching-rooms? false})))
