@@ -99,7 +99,8 @@
             [:g size
              [:text (assoc size :fill "white")
               ;; Make sure text is not drawn outside the bar (quick and dirty solution)
-              (subs subject 0 (int (/ (:width size) 12)))]])]]))))
+              (when subject
+                (subs subject 0 (int (/ (:width size) 12))))]])]]))))
 
 (defn- rooms-timetable-header [{:keys [start-hour end-hour width row-height]}]
   (let [size-opts {:height row-height}
