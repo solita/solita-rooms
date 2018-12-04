@@ -2,12 +2,14 @@
 
 (def config
   {:locations
-   (sort-by :name [{:id :helsinki :filters ["Helsinki"]}
-                   {:id :oulu :filters ["Oulu"]}
-                   {:id :tampere :filters ["Tampere"]}
-                   {:id :virtual :filters ["Virtual" "Virtuaali"]}
-                   {:id :tallinn :filters ["Tallinna" "Tallinn"]}
-                   {:id :stockholm :filters ["Sto" "Stockholm" "Tukholma"]}])
+    [{:id :helsinki :filters ["Helsinki"]}
+    {:id :tampere :filters ["Tampere"]}
+    {:id :oulu :filters ["Oulu"]}
+    {:id :lahti :filters ["Turku"]}
+    {:id :turku :filters ["Lahti"]}
+    {:id :tallinn :filters ["Tallinna" "Tallinn"]}
+    {:id :stockholm :filters ["Tukholma" "Sto" "Stockholm"]}
+    {:id :virtual :filters ["Virtual" "Virtuaali"]}]
    :use-licensed-assets? false
    :timetable {:start-hour 7
                :end-hour 17}
