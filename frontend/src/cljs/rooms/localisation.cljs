@@ -17,15 +17,19 @@
    :location-helsinki {:fi "Helsinki"
                        :en "Helsinki"}
    :location-oulu {:fi "Oulu"
-                       :en "Oulu"}
+                   :en "Oulu"}
    :location-tampere {:fi "Tampere"
-                       :en "Tampere"}
+                      :en "Tampere"}
    :location-stockholm {:fi "Tukholma"
-                       :en "Stockholm"}
+                        :en "Stockholm"}
+   :location-lahti {:fi "Lahti"
+                    :en "Lahti"}
+   :location-turku {:fi "Turku"
+                    :en "Turku"}
    :location-tallinn {:fi "Tallinna"
-                       :en "Tallinn"}
+                      :en "Tallinn"}
    :location-virtual {:fi "Virtuaali"
-                       :en "Virtual"}
+                      :en "Virtual"}
    ;; Filters
    :date {:fi "Päivämäärä"
           :en "Date"}
