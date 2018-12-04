@@ -5,8 +5,8 @@
     [{:id :tampere :filters ["Tampere"]}
     {:id :helsinki :filters ["Helsinki"]}
     {:id :oulu :filters ["Oulu"]}
-    {:id :lahti :filters ["Turku"]}
-    {:id :turku :filters ["Lahti"]}
+    {:id :lahti :filters ["Lahti"]}
+    {:id :turku :filters ["Turku"]}
     {:id :tallinn :filters ["Tallinna" "Tallinn"]}
     {:id :stockholm :filters ["Tukholma" "Sto" "Stockholm"]}
     {:id :virtual :filters ["Virtual" "Virtuaali"]}]
