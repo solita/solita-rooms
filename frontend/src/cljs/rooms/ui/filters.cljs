@@ -39,15 +39,15 @@
                  [:div
                   [input/checkbox (language/text (keyword (str "location-" (name (:id location)))))
                    (some? ((get-in app [:filters :locations]) (:id location)))
-                   #(e! (state/->CheckFilterLocations (:id location)))]]))]]
+                   #(e! (state/->CheckFilterLocations (:id location)))]]))]]]
+
+     [:div (use-style (grid/column grid/col-size-4 grid/col-size-4 grid/col-size-6 grid/col-size-12))
       [heading-and-filter
        (language/text :urgency)
        [:div
         [input/checkbox (language/text :available-soon)
          (get-in app [:filters :urgency?])
-         #(e! (state/->CheckFilterBoolean :urgency? %))]]]]
-
-     [:div (use-style (grid/column grid/col-size-4 grid/col-size-4 grid/col-size-6 grid/col-size-12))
+         #(e! (state/->CheckFilterBoolean :urgency? %))]]]
       [heading-and-filter
        (language/text :features)
        [:div
