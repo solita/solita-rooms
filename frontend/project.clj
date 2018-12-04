@@ -10,7 +10,7 @@
                  [clj-time "0.14.3"]
                  [com.cognitect/transit-cljs "0.8.243"]
                  [org.clojure/core.async "0.4.474"]
-                 [stylefy "1.8.0"]
+                 [stylefy "1.10.1"]
                  [garden "1.3.4"]
                  [webjure/tuck "20180722"]
                  [alandipert/storage-atom "1.2.4"]
@@ -46,8 +46,4 @@
                                      "resources/public/js/out"]
   :figwheel {:http-server-root "public"}
   :source-paths ["src/clj" "src/cljc"]
-  :test-paths ["test/clj"]
-
-  :jvm-opts ^:replace ["-Xmx1g" "-server"
-                       ;; For Java 9 & 10:
-                       "--add-modules" "java.xml.bind"])
+  :test-paths ["test/clj"])
