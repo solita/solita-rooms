@@ -2,8 +2,8 @@
 
 (def config
   {:locations
-    [{:id :helsinki :filters ["Helsinki"]}
-    {:id :tampere :filters ["Tampere"]}
+    [{:id :tampere :filters ["Tampere"]}
+    {:id :helsinki :filters ["Helsinki"]}
     {:id :oulu :filters ["Oulu"]}
     {:id :lahti :filters ["Turku"]}
     {:id :turku :filters ["Lahti"]}
