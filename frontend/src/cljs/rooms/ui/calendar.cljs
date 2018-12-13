@@ -34,9 +34,11 @@
   [:tr
    [:td (use-style calendar-style/cell-bold) (cell-day-fmt week-number)]
    (for* [index (range 0 7)]
-     [day-cell {:current-date current-date :selected-date selected-date
+     [day-cell {:current-date current-date
+                :selected-date selected-date
                 :selected-month selected-month
-                :date-selected date-selected :date (get dates index)}])])
+                :date-selected date-selected
+                :date (get dates index)}])])
 
 (defn- dates-vector [{:keys [year month current-month-days-range previous-month-days-range
                              day-of-first-week row-index last-row-index]}]
@@ -49,17 +51,19 @@
            (= row-index 0)
            (let [previous-month-end (reverse (take (dec day-of-first-week)
                                                    (reverse previous-month-days-range)))
-                 current-month-start (take (- 7 (count previous-month-end)) current-month-days-range)]
-             (concat (map #(t/local-date-time year (date/previous-month month) %) previous-month-end)
+                 current-month-start (take (- 7 (count previous-month-end)) current-month-days-range)
+                 previous-month-year (if (= month 1) (dec year) year)]
+             (concat (map #(t/local-date-time previous-month-year (date/previous-month month) %) previous-month-end)
                      (map #(t/local-date-time year month %) current-month-start)))
 
            ; Last row, include the last days of the current month + the first days of the next
            (= row-index last-row-index)
            (let [current-month-end (full-row-vector)
                  next-month-days (range 1 29) ; Every month has at least 28 days
-                 next-month-start (take (- 7 (count current-month-end)) next-month-days)]
+                 next-month-start (take (- 7 (count current-month-end)) next-month-days)
+                 next-month-year (if (= month 12) (inc year) year)]
              (concat (map #(t/local-date-time year month %) current-month-end)
-                     (map #(t/local-date-time year (date/next-month month) %) next-month-start)))
+                     (map #(t/local-date-time next-month-year (date/next-month month) %) next-month-start)))
 
            ; Something between, include only days from the current month
            :default
