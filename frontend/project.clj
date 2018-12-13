@@ -1,4 +1,4 @@
-(defproject rooms "2.0.0"
+(defproject rooms "2.0.1"
   :description "Solita Rooms"
   :url ""
   :dependencies [[org.clojure/clojure "1.9.0"]
