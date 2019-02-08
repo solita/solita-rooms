@@ -1,3 +1,5 @@
+*Notice:* Solita does not maintain this project anymore.
+
 # General
 
 This application can be used to view Microsoft Exchange room bookings in a simple web interface.
