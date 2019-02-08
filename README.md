@@ -1,4 +1,4 @@
-*Notice:* Solita does not maintain this project anymore.
+**Notice:** Solita does not maintain this project anymore.
 
 # General
 
