@@ -1,4 +1,6 @@
-**Notice:** Solita does not maintain this project anymore.
+# Current Status Notice 
+
+Solita does not maintain this project anymore.
 
 # General
 
