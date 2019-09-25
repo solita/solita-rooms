@@ -37,7 +37,7 @@
       "hasVideoConferencingSupport": true,
       "capacity": 10,
       "email": "",
-      "displayName": "Huone 1",
+      "displayName": "Huone 2",
       "bookedTimes": [
         {
           "date": "2019-09-27",
@@ -57,7 +57,7 @@
       "hasVideoConferencingSupport": false,
       "capacity": 2,
       "email": "",
-      "displayName": "Huone 1",
+      "displayName": "Huone 3",
       "bookedTimes": [
         {
           "date": "2019-09-27",
@@ -93,25 +93,8 @@
       "hasVideoConferencingSupport": false,
       "capacity": 3,
       "email": "",
-      "displayName": "Huone 1",
-      "bookedTimes": [
-        {
-          "date": "2019-09-27",
-          "startTime": "10:00",
-          "endTime": "10:30",
-          "subject": "Something",
-          "bookedBy": "Matti",
-          "isAllDayBooking": false
-        },
-        {
-          "date": "2019-09-27",
-          "startTime": "15:00",
-          "endTime": "16:00",
-          "subject": "Meeting",
-          "bookedBy": "Erkki",
-          "isAllDayBooking": false
-        }
-      ]
+      "displayName": "Huone 4",
+      "bookedTimes": []
     },
     {
       "name": "Room 5",
@@ -121,7 +104,7 @@
       "hasVideoConferencingSupport": true,
       "capacity": 5,
       "email": "",
-      "displayName": "Huone 1",
+      "displayName": "Huone 5",
       "bookedTimes": [
         {
           "date": "2019-09-27",
