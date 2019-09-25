@@ -1,0 +1,145 @@
+{
+  "date": "2019-09-27",
+  "rooms": [
+    {
+      "name": "Room 1",
+      "location": "Tampere",
+      "isSuitableForInternalMeetings": true,
+      "isSuitableForClientMeetings": true,
+      "hasVideoConferencingSupport": true,
+      "capacity": 8,
+      "email": "",
+      "displayName": "Huone 1",
+      "bookedTimes": [
+        {
+          "date": "2019-09-27",
+          "startTime": "10:00",
+          "endTime": "11:00",
+          "subject": "Important meeting",
+          "bookedBy": "Matti",
+          "isAllDayBooking": false
+        },
+        {
+          "date": "2019-09-27",
+          "startTime": "12:00",
+          "endTime": "14:00",
+          "subject": "Another important meeting",
+          "bookedBy": "Erkki",
+          "isAllDayBooking": false
+        }
+      ]
+    },
+    {
+      "name": "Room 2",
+      "location": "Tampere",
+      "isSuitableForInternalMeetings": false,
+      "isSuitableForClientMeetings": false,
+      "hasVideoConferencingSupport": true,
+      "capacity": 10,
+      "email": "",
+      "displayName": "Huone 1",
+      "bookedTimes": [
+        {
+          "date": "2019-09-27",
+          "startTime": "08:00",
+          "endTime": "11:00",
+          "subject": "Meeting",
+          "bookedBy": "Matti",
+          "isAllDayBooking": false
+        }
+      ]
+    },
+    {
+      "name": "Room 3",
+      "location": "Helsinki",
+      "isSuitableForInternalMeetings": true,
+      "isSuitableForClientMeetings": true,
+      "hasVideoConferencingSupport": false,
+      "capacity": 2,
+      "email": "",
+      "displayName": "Huone 1",
+      "bookedTimes": [
+        {
+          "date": "2019-09-27",
+          "startTime": "08:00",
+          "endTime": "08:30",
+          "subject": "Some meeting",
+          "bookedBy": "Kyösti",
+          "isAllDayBooking": false
+        },
+        {
+          "date": "2019-09-27",
+          "startTime": "09:00",
+          "endTime": "10:00",
+          "subject": "Another important meeting",
+          "bookedBy": "Erkki",
+          "isAllDayBooking": false
+        },
+        {
+          "date": "2019-09-27",
+          "startTime": "14:00",
+          "endTime": "15:00",
+          "subject": "Important meeting",
+          "bookedBy": "Tiina",
+          "isAllDayBooking": false
+        }
+      ]
+    },
+    {
+      "name": "Room 4",
+      "location": "Helsinki",
+      "isSuitableForInternalMeetings": false,
+      "isSuitableForClientMeetings": false,
+      "hasVideoConferencingSupport": false,
+      "capacity": 3,
+      "email": "",
+      "displayName": "Huone 1",
+      "bookedTimes": [
+        {
+          "date": "2019-09-27",
+          "startTime": "10:00",
+          "endTime": "10:30",
+          "subject": "Something",
+          "bookedBy": "Matti",
+          "isAllDayBooking": false
+        },
+        {
+          "date": "2019-09-27",
+          "startTime": "15:00",
+          "endTime": "16:00",
+          "subject": "Meeting",
+          "bookedBy": "Erkki",
+          "isAllDayBooking": false
+        }
+      ]
+    },
+    {
+      "name": "Room 5",
+      "location": "Tampere",
+      "isSuitableForInternalMeetings": true,
+      "isSuitableForClientMeetings": true,
+      "hasVideoConferencingSupport": true,
+      "capacity": 5,
+      "email": "",
+      "displayName": "Huone 1",
+      "bookedTimes": [
+        {
+          "date": "2019-09-27",
+          "startTime": "10:00",
+          "endTime": "11:00",
+          "subject": "Important meeting",
+          "bookedBy": "Matti",
+          "isAllDayBooking": false
+        },
+        {
+          "date": "2019-09-27",
+          "startTime": "14:00",
+          "endTime": "15:00",
+          "subject": "Another important meeting",
+          "bookedBy": "Erkki",
+          "isAllDayBooking": false
+        }
+      ]
+    }
+  ]
+}
